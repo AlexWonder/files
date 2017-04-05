@@ -4,14 +4,16 @@ using namespace std;
 
 int main( )
 {
-   ofstream myfile;
-   myfile.open ("abc.txt");
-
    short int a = -6730;
    float b = 68.123; 
    char c = 'J';
 
-   myfile<<a<<" "<<b<<" "<<c;
+   ofstream myfile{"abc.txt"};
+   if (myfile) //check if opened successfully
+   	myfile<<a<<" "<<b<<" "<<c;
+   else
+	cout << "Error opening abc.txt" << endl;
+
    myfile.close(); 
  
    return 0;
